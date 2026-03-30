@@ -515,19 +515,7 @@
     box-shadow: 0 12px 32px rgba(201,83,106,.35);
   }
 
-  /* ─── HEARTS BURST ─── */
-  .burst-heart {
-    position: fixed;
-    font-size: 1.5rem;
-    pointer-events: none;
-    z-index: 9997;
-    animation: burstUp .9s ease forwards;
-  }
 
-  @keyframes burstUp {
-    0%   { opacity: 1; transform: translateY(0) scale(1); }
-    100% { opacity: 0; transform: translateY(-120px) scale(1.6); }
-  }
 
   /* ─── ANIMATIONS ─── */
   @keyframes riseIn {
@@ -696,7 +684,7 @@
   <div class="closing-title">♡</div>
   <h2 class="section-title reveal">I love you,<br><em>Roma Anujaa.</em></h2>
   <p class="closing-sub reveal">Now and always. No matter what. 💕</p>
-  <button class="heart-btn reveal" onclick="burstHearts(event)">Send her a kiss 💋</button>
+
 </section>
 
 <script>
@@ -739,21 +727,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => obs.observe(r));
 
-  // ─── HEART BURST ───
-  function burstHearts(e) {
-    const count = 16;
-    for (let i = 0; i < count; i++) {
-      const h = document.createElement('div');
-      h.className = 'burst-heart';
-      h.textContent = ['💕','💗','💖','💝','❤️','🌸'][Math.floor(Math.random()*6)];
-      h.style.left = (e.clientX + (Math.random()-0.5)*100) + 'px';
-      h.style.top  = (e.clientY + (Math.random()-0.5)*60) + 'px';
-      h.style.animationDelay = (Math.random() * .3) + 's';
-      h.style.fontSize = (.8 + Math.random() * 1.2) + 'rem';
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 1200);
-    }
-  }
+
 </script>
 </body>
 </html>
